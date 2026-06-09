@@ -1,0 +1,33 @@
+Exercício 3 – Sistema de Login (Estrutura enquanto)
+algoritmo "sistema_login"
+
+var
+   senhaCorreta, senhaDigitada: caractere
+
+inicio
+
+   senhaCorreta <- "senha123"
+
+   escreva("Digite a senha: ")
+   leia(senhaDigitada)
+
+   enquanto senhaDigitada <> senhaCorreta faca
+
+      escreval("Senha incorreta, tente novamente.")
+      escreva("Digite a senha: ")
+      leia(senhaDigitada)
+
+   fimenquanto
+
+   escreval("Acesso Liberado! Bem-vindo!")
+
+fimalgoritmo
+Sugestões para os commits no GitHub
+git add .
+git commit -m "adiciona calculadora exercicio 1"
+
+git add .
+git commit -m "adiciona tabuada exercicio 2"
+
+git add .
+git commit -m "adiciona sistema login exercicio 3"
