@@ -1,0 +1,23 @@
+algoritmo "TelaBloqueio"
+
+var
+   senha: caractere
+   senhaCorreta: caractere
+
+inicio
+
+   senhaCorreta <- "123456"
+
+   escreva("Digite a senha: ")
+   leia(senha)
+
+   enquanto (senha <> senhaCorreta) faca
+      limpatela
+      escreval("Senha incorreta, acesso negado. Tente novamente:")
+      escreva("Digite a senha: ")
+      leia(senha)
+   fimenquanto
+
+   escreval("Acesso liberado!")
+
+fimalgoritmo
