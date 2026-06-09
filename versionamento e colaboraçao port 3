@@ -1,8 +1,0 @@
-Branch é uma ramificação de um projeto no Git. Ela permite fazer alterações sem mexer diretamente na versão principal do código. Isso ajuda a evitar problemas e deixa o trabalho mais organizado.
-
-As branches servem para desenvolver novas funções, corrigir erros e testar ideias sem afetar o sistema que já está funcionando.
-
-Um exemplo é quando um sistema de login apresenta um bug e precisa ser corrigido. Outro exemplo é quando uma nova funcionalidade está sendo criada. Também são úteis para fazer testes antes de colocar uma mudança no projeto principal.
-
-No final, as branches são importantes porque aumentam a segurança do desenvolvimento e facilitam o trabalho em equipe.
-
