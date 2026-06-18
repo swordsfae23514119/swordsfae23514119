@@ -1,0 +1,180 @@
+programa
+{
+	funcao inicio()
+	{
+		// Status do jogador e do monstro
+		inteiro vidaHeroi = 100
+		inteiro vidaMonstro = 150
+		inteiro energia = 50
+
+		// Itens da mochila
+		inteiro pocaoCura = 2
+		inteiro bebidaEnergetica = 2
+		inteiro bombaMagica = 1
+		inteiro escudoSagrado = 1
+
+		inteiro opcao
+		inteiro item
+		inteiro danoMonstro
+		logico monstroPerdeTurno = falso
+
+		escreva("=== A CAVERNA DO DRAGAO SOMBRIO ===\n")
+
+		enquanto(vidaHeroi > 0 e vidaMonstro > 0)
+		{
+			escreva("\n--------------------------\n")
+			escreva("Vida do Heroi: ", vidaHeroi, "\n")
+			escreva("Energia: ", energia, "\n")
+			escreva("Vida do Dragao: ", vidaMonstro, "\n")
+
+			escreva("\nEscolha sua acao:\n")
+			escreva("1 - Ataque Poderoso\n")
+			escreva("2 - Defender e Recuperar Energia\n")
+			escreva("3 - Usar Item\n")
+			escreva("Opcao: ")
+			leia(opcao)
+
+			se(opcao == 1)
+			{
+				se(energia >= 10)
+				{
+					escreva("\nVoce desfere um golpe poderoso!\n")
+					vidaMonstro = vidaMonstro - 25
+					energia = energia - 10
+				}
+				senao
+				{
+					escreva("\nEnergia insuficiente!\n")
+				}
+			}
+			senao se(opcao == 2)
+			{
+				escreva("\nVoce assume postura defensiva.\n")
+				energia = energia + 10
+
+				se(energia > 50)
+				{
+					energia = 50
+				}
+			}
+			senao se(opcao == 3)
+			{
+				escreva("\n=== ITENS ===\n")
+				escreva("1 - Pocao de Cura (", pocaoCura, ")\n")
+				escreva("2 - Bebida Energetica (", bebidaEnergetica, ")\n")
+				escreva("3 - Bomba Magica (", bombaMagica, ")\n")
+				escreva("4 - Escudo Sagrado (", escudoSagrado, ")\n")
+				escreva("Escolha: ")
+				leia(item)
+
+				escolha(item)
+				{
+					caso 1:
+						se(pocaoCura > 0)
+						{
+							vidaHeroi = vidaHeroi + 30
+							pocaoCura--
+							escreva("\nVoce recuperou 30 de vida!\n")
+
+							se(vidaHeroi > 100)
+							{
+								vidaHeroi = 100
+							}
+						}
+						senao
+						{
+							escreva("\nPocao esgotada!\n")
+						}
+						pare
+
+					caso 2:
+						se(bebidaEnergetica > 0)
+						{
+							energia = energia + 20
+							bebidaEnergetica--
+							escreva("\nEnergia recuperada!\n")
+
+							se(energia > 50)
+							{
+								energia = 50
+							}
+						}
+						senao
+						{
+							escreva("\nBebida esgotada!\n")
+						}
+						pare
+
+					caso 3:
+						se(bombaMagica > 0)
+						{
+							vidaMonstro = vidaMonstro - 40
+							bombaMagica--
+							escreva("\nA bomba magica causou 40 de dano!\n")
+						}
+						senao
+						{
+							escreva("\nBomba esgotada!\n")
+						}
+						pare
+
+					caso 4:
+						se(escudoSagrado > 0)
+						{
+							escudoSagrado--
+							monstroPerdeTurno = verdadeiro
+							escreva("\nO monstro foi cegado e perdera o proximo turno!\n")
+						}
+						senao
+						{
+							escreva("\nEscudo esgotado!\n")
+						}
+						pare
+
+					caso contrario:
+						escreva("\nItem invalido!\n")
+				}
+			}
+			senao
+			{
+				escreva("\nOpcao invalida!\n")
+			}
+
+			// Verifica se o monstro morreu
+			se(vidaMonstro <= 0)
+			{
+				pare
+			}
+
+			// Turno do monstro
+			se(monstroPerdeTurno)
+			{
+				escreva("\nO Dragao esta desorientado e perdeu a vez!\n")
+				monstroPerdeTurno = falso
+			}
+			senao
+			{
+				danoMonstro = 15
+				vidaHeroi = vidaHeroi - danoMonstro
+
+				escreva("\nO Dragao atacou e causou ")
+				escreva(danoMonstro)
+				escreva(" de dano!\n")
+			}
+		}
+
+		// Final do jogo
+		escreva("\n========================\n")
+
+		se(vidaMonstro <= 0)
+		{
+			escreva("VITORIA!\n")
+			escreva("Voce derrotou o Dragao Sombrio e salvou o reino!\n")
+		}
+		senao
+		{
+			escreva("GAME OVER!\n")
+			escreva("O Dragao Sombrio derrotou o heroi.\n")
+		}
+	}
+}
